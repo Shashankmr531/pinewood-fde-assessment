@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../pinewood_gold_dataset.SemanticModel"
+    }
+  }
+}

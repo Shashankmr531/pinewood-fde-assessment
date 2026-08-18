@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+pipeline/warehouse/*.duckdb
+pipeline/warehouse/**/*.parquet
+pipeline/warehouse/run_log.csv
+powerbi/*.SemanticModel
