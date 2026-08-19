@@ -9,9 +9,9 @@ I hope you’re well. I’m working on the Pinewood data pipeline and need read 
 - ADP shifts export
 - HubSpot leads export
 
-Can you please grant a read-only SFTP/Share or provide scheduled CSV exports to the project inbox (or advise the approved access method)? If there are security steps or forms I should complete, please let me know and I’ll get them done.
+Can you please grant a read-only SFTP/Share or provide scheduled CSV exports to the project inbox (or advise the approved access method)? If there are security steps or forms I should complete, please let me know.
 
-Thanks very much for your help,
+Thanks very much for your help.
 
 Regards,
 Shashank M R,
