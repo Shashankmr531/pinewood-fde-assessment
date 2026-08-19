@@ -1,0 +1,25 @@
+user_principal_name,community_id,region,role
+rd_or@example.com,C001,Pacific Northwest,RegionalManager
+rd_or@example.com,C002,Pacific Northwest,RegionalManager
+rd_or@example.com,C003,Pacific Northwest,RegionalManager
+rd_or@example.com,C004,Pacific Northwest,RegionalManager
+shashank.mr@intimetec.com,C005,Southwest,RegionalManager
+shashank.mr@intimetec.com,C006,Southwest,RegionalManager
+shashank.mr@intimetec.com,C007,Southwest,RegionalManager
+shashank.mr@intimetec.com,C008,Southwest,RegionalManager
+rd_tx@example.com,C009,South,RegionalManager
+rd_tx@example.com,C010,South,RegionalManager
+rd_tx@example.com,C011,South,RegionalManager
+rd_tx@example.com,C012,South,RegionalManager
+rd_tx@example.com,C013,South,RegionalManager
+rd_tx@example.com,C014,South,RegionalManager
+ed_bend@example.com,C001,Pacific Northwest,CommunityManager
+ed_corvallis@example.com,C002,Pacific Northwest,CommunityManager
+ed_eugene@example.com,C003,Pacific Northwest,CommunityManager
+ed_portland@example.com,C004,Pacific Northwest,CommunityManager
+shashankmr531@outlook.com,C005,Southwest,CommunityManager
+ed_mesa@example.com,C006,Southwest,CommunityManager
+ed_tucson@example.com,C007,Southwest,CommunityManager
+ed_dallas@example.com,C008,South,CommunityManager
+ed_fortworth@example.com,C009,South,CommunityManager
+ed_houston@example.com,C010,South,CommunityManager

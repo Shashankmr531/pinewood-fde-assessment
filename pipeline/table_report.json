@@ -1,0 +1,576 @@
+{
+  "tables": [
+    {
+      "schema": "gold",
+      "table": "dim_care_level",
+      "full_name": "gold.dim_care_level",
+      "row_count": 3,
+      "columns": [
+        "care_level_code",
+        "care_level_name"
+      ],
+      "sample_rows": [
+        [
+          "IL",
+          "Independent Living"
+        ],
+        [
+          "AL",
+          "Assisted Living"
+        ],
+        [
+          "MC",
+          "Memory Care"
+        ]
+      ]
+    },
+    {
+      "schema": "gold",
+      "table": "dim_community",
+      "full_name": "gold.dim_community",
+      "row_count": 14,
+      "columns": [
+        "community_id",
+        "community_name",
+        "state",
+        "region"
+      ],
+      "sample_rows": [
+        [
+          "C001",
+          "Pinewood Bend",
+          "OR",
+          "Pacific Northwest"
+        ],
+        [
+          "C002",
+          "Pinewood Corvallis",
+          "OR",
+          "Pacific Northwest"
+        ],
+        [
+          "C003",
+          "Pinewood Eugene",
+          "OR",
+          "Pacific Northwest"
+        ]
+      ]
+    },
+    {
+      "schema": "gold",
+      "table": "dim_date",
+      "full_name": "gold.dim_date",
+      "row_count": 6,
+      "columns": [
+        "month_start",
+        "year_num",
+        "month_num",
+        "month_name"
+      ],
+      "sample_rows": [
+        [
+          "2025-01-01 00:00:00",
+          "2025",
+          "1",
+          "Jan 2025"
+        ],
+        [
+          "2025-02-01 00:00:00",
+          "2025",
+          "2",
+          "Feb 2025"
+        ],
+        [
+          "2025-03-01 00:00:00",
+          "2025",
+          "3",
+          "Mar 2025"
+        ]
+      ]
+    },
+    {
+      "schema": "gold",
+      "table": "fact_incident_care_monthly",
+      "full_name": "gold.fact_incident_care_monthly",
+      "row_count": 252,
+      "columns": [
+        "community_id",
+        "care_level",
+        "month_start",
+        "incident_count",
+        "resident_days",
+        "incident_rate_per_100_resident_days"
+      ],
+      "sample_rows": [
+        [
+          "C001",
+          "AL",
+          "2025-01-01",
+          "1",
+          "651",
+          "0.15360983102918588"
+        ],
+        [
+          "C001",
+          "AL",
+          "2025-02-01",
+          "2",
+          "616",
+          "0.3246753246753247"
+        ],
+        [
+          "C001",
+          "AL",
+          "2025-03-01",
+          "1",
+          "713",
+          "0.1402524544179523"
+        ]
+      ]
+    },
+    {
+      "schema": "gold",
+      "table": "fact_move_out",
+      "full_name": "gold.fact_move_out",
+      "row_count": 119,
+      "columns": [
+        "move_out_id",
+        "resident_id",
+        "community_id",
+        "move_out_date",
+        "move_out_reason",
+        "move_out_month"
+      ],
+      "sample_rows": [
+        [
+          "L050646",
+          "R01646",
+          "C004",
+          "2025-04-25 00:00:00",
+          "Higher Care Needed",
+          "2025-04-01 00:00:00"
+        ],
+        [
+          "L050650",
+          "R01650",
+          "C005",
+          "2025-03-15 00:00:00",
+          "Other",
+          "2025-03-01 00:00:00"
+        ],
+        [
+          "L050284",
+          "R01284",
+          "C007",
+          "2025-01-24 00:00:00",
+          "Financial",
+          "2025-01-01 00:00:00"
+        ]
+      ]
+    },
+    {
+      "schema": "gold",
+      "table": "fact_occupancy_monthly",
+      "full_name": "gold.fact_occupancy_monthly",
+      "row_count": 84,
+      "columns": [
+        "community_id",
+        "month_start",
+        "occupied_units",
+        "total_units",
+        "occupancy_pct"
+      ],
+      "sample_rows": [
+        [
+          "C001",
+          "2025-01-01",
+          "47",
+          "65",
+          "0.7231"
+        ],
+        [
+          "C002",
+          "2025-01-01",
+          "39",
+          "65",
+          "0.6"
+        ],
+        [
+          "C003",
+          "2025-01-01",
+          "37",
+          "65",
+          "0.5692"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "adp_shifts",
+      "full_name": "silver.adp_shifts",
+      "row_count": 68071,
+      "columns": [
+        "shift_id",
+        "community_id",
+        "employee_id",
+        "role",
+        "shift_date",
+        "hours_worked",
+        "hourly_rate"
+      ],
+      "sample_rows": [
+        [
+          "S202501000031",
+          "C001",
+          "E54141",
+          "Admin",
+          "2025-01-01",
+          "8",
+          "24.0"
+        ],
+        [
+          "S202501000062",
+          "C001",
+          "E40641",
+          "Caregiver",
+          "2025-01-01",
+          "8",
+          "16.0"
+        ],
+        [
+          "S202501000075",
+          "C001",
+          "E36792",
+          "Dining",
+          "2025-01-01",
+          "8",
+          "18.0"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "gbp_reviews",
+      "full_name": "silver.gbp_reviews",
+      "row_count": 424,
+      "columns": [
+        "review_id",
+        "community_id",
+        "review_date",
+        "rating",
+        "review_text",
+        "response_text",
+        "responded_at"
+      ],
+      "sample_rows": [
+        [
+          "GR466987",
+          "C001",
+          "2025-01-07",
+          "3",
+          "Communication could be better",
+          "None",
+          "None"
+        ],
+        [
+          "GR213202",
+          "C001",
+          "2025-01-10",
+          "4",
+          "Nice facility",
+          "Thank you for your feedback. We appreciate you taking the time to share your experience.",
+          "2025-01-18"
+        ],
+        [
+          "GR387689",
+          "C001",
+          "2025-01-21",
+          "5",
+          "Excellent care and staff",
+          "Thank you for your feedback. We appreciate you taking the time to share your experience.",
+          "2025-01-22"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "hubspot_leads",
+      "full_name": "silver.hubspot_leads",
+      "row_count": 830,
+      "columns": [
+        "lead_id",
+        "community_id",
+        "lead_source",
+        "created_date",
+        "tour_date",
+        "deposit_date",
+        "move_in_date",
+        "status",
+        "lost_reason"
+      ],
+      "sample_rows": [
+        [
+          "HL316257",
+          "C001",
+          "Print",
+          "2025-01-02",
+          "None",
+          "None",
+          "None",
+          "Open",
+          "None"
+        ],
+        [
+          "HL833287",
+          "C001",
+          "Print",
+          "2025-01-06",
+          "None",
+          "None",
+          "None",
+          "Lost",
+          "Affordability"
+        ],
+        [
+          "HL706575",
+          "C001",
+          "Google Ads",
+          "2025-01-10",
+          "None",
+          "None",
+          "None",
+          "Lost",
+          "Other"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "pcc_care_history",
+      "full_name": "silver.pcc_care_history",
+      "row_count": 303,
+      "columns": [
+        "resident_id",
+        "change_date",
+        "previous_level",
+        "new_level",
+        "reason"
+      ],
+      "sample_rows": [
+        [
+          "R01578",
+          "2025-01-08",
+          "AL",
+          "MC",
+          "Acuity Increase"
+        ],
+        [
+          "R01639",
+          "2025-01-02",
+          "None",
+          "AL",
+          "Admission"
+        ],
+        [
+          "R01640",
+          "2025-01-17",
+          "None",
+          "AL",
+          "Admission"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "pcc_incidents",
+      "full_name": "silver.pcc_incidents",
+      "row_count": 411,
+      "columns": [
+        "incident_id",
+        "resident_id",
+        "community_id",
+        "incident_date",
+        "incident_type",
+        "severity",
+        "reported_by"
+      ],
+      "sample_rows": [
+        [
+          "I010003",
+          "R01136",
+          "C003",
+          "2025-01-01",
+          "Medication Error",
+          "1",
+          "E5921"
+        ],
+        [
+          "I010008",
+          "R01159",
+          "C004",
+          "2025-01-01",
+          "Fall",
+          "3",
+          "E5094"
+        ],
+        [
+          "I010029",
+          "R01182",
+          "C005",
+          "2025-01-01",
+          "Behavioral",
+          "2",
+          "E3895"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "pcc_residents",
+      "full_name": "silver.pcc_residents",
+      "row_count": 4149,
+      "columns": [
+        "resident_id",
+        "community_id",
+        "first_name",
+        "last_name",
+        "dob",
+        "gender",
+        "admit_date",
+        "discharge_date",
+        "care_level",
+        "acuity_score",
+        "mobility_status",
+        "snapshot_month"
+      ],
+      "sample_rows": [
+        [
+          "R01000",
+          "C001",
+          "Ruth",
+          "Thomas",
+          "1952-11-09",
+          "M",
+          "2024-03-19",
+          "None",
+          "IL",
+          "1",
+          "None",
+          "2025-01-01"
+        ],
+        [
+          "R01001",
+          "C001",
+          "Michael",
+          "Johnson",
+          "1957-09-29",
+          "F",
+          "2024-05-08",
+          "None",
+          "AL",
+          "2",
+          "None",
+          "2025-01-01"
+        ],
+        [
+          "R01002",
+          "C001",
+          "Betty",
+          "Rivera",
+          "1939-01-29",
+          "F",
+          "2022-01-03",
+          "None",
+          "AL",
+          "5",
+          "None",
+          "2025-01-01"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "yardi_leases",
+      "full_name": "silver.yardi_leases",
+      "row_count": 346,
+      "columns": [
+        "lease_id",
+        "resident_id",
+        "unit_id",
+        "community_id",
+        "move_in_date",
+        "move_out_date",
+        "move_out_reason",
+        "monthly_rate"
+      ],
+      "sample_rows": [
+        [
+          "L050639",
+          "R01639",
+          "U00027",
+          "C001",
+          "2025-01-02",
+          "None",
+          "None",
+          "4974"
+        ],
+        [
+          "L050640",
+          "R01640",
+          "U00035",
+          "C001",
+          "2025-01-17",
+          "None",
+          "None",
+          "4954"
+        ],
+        [
+          "L050641",
+          "R01641",
+          "U00090",
+          "C002",
+          "2025-01-13",
+          "None",
+          "None",
+          "5097"
+        ]
+      ]
+    },
+    {
+      "schema": "silver",
+      "table": "yardi_units",
+      "full_name": "silver.yardi_units",
+      "row_count": 5490,
+      "columns": [
+        "unit_id",
+        "community_id",
+        "unit_type",
+        "monthly_rent",
+        "snapshot_date"
+      ],
+      "sample_rows": [
+        [
+          "U00001",
+          "C001",
+          "IL",
+          "4547",
+          "2025-01-01"
+        ],
+        [
+          "U00002",
+          "C001",
+          "IL",
+          "4256",
+          "2025-01-01"
+        ],
+        [
+          "U00003",
+          "C001",
+          "IL",
+          "4249",
+          "2025-01-01"
+        ]
+      ]
+    }
+  ]
+}
