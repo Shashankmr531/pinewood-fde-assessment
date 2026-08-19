@@ -1,0 +1,84 @@
+table fact_move_out
+	lineageTag: 5cf14d7d-cc28-4255-89c5-91ff34ea06c6
+
+	measure m_MoveOutCount =
+			
+			COUNTROWS('fact_move_out')
+		formatString: 0
+		lineageTag: b1780387-f086-4b18-82a1-3410294310e4
+
+	column move_out_id
+		dataType: string
+		lineageTag: dc996c87-0404-4583-9a8a-535a2eb874c9
+		summarizeBy: none
+		sourceColumn: move_out_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column resident_id
+		dataType: string
+		lineageTag: d48fccbf-9c11-4849-a40e-17d9a890963c
+		summarizeBy: none
+		sourceColumn: resident_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column community_id
+		dataType: string
+		lineageTag: 8375f6d3-0c66-4d99-b404-1c3f30ff0bfb
+		summarizeBy: none
+		sourceColumn: community_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_out_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bb92dca8-bd06-4d27-b272-e8cd4c5ff655
+		summarizeBy: none
+		sourceColumn: move_out_date
+
+		variation Variation
+			isDefault
+			relationship: 6bc81800-182d-43ec-ba5a-4751f6860d44
+			defaultHierarchy: LocalDateTable_1b5fcaa9-8ce0-4a7b-9074-a8d10fe3397e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_out_reason
+		dataType: string
+		lineageTag: a667a682-09f0-4dfd-a245-81abfc24e964
+		summarizeBy: none
+		sourceColumn: move_out_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column move_out_month
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee509b27-e09e-45e8-9ea6-5e76d7ffccfa
+		summarizeBy: none
+		sourceColumn: move_out_month
+
+		variation Variation
+			isDefault
+			relationship: c60ba4d5-524f-4c3b-ad7c-8d2233702c5a
+			defaultHierarchy: LocalDateTable_52524033-9907-4d81-a533-783f9c5f48e8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_move_out = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("driver={DuckDB Driver};database=C:\Users\Shashank M R\PycharmProjects\copilot-worktrees\pinewood-fde-assessment\shashank-mr-fde-assignment\pipeline\warehouse\pinewood.duckdb;access_mode=READ_ONLY;dsn=DuckDB", [HierarchicalNavigation=true]),
+				    pinewood_Database = Source{[Name="pinewood",Kind="Database"]}[Data],
+				    gold_Schema = pinewood_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fact_move_out_Table = gold_Schema{[Name="fact_move_out",Kind="Table"]}[Data]
+				in
+				    fact_move_out_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

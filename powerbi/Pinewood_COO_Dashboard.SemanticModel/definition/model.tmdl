@@ -1,0 +1,31 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_care_level","dim_date","dim_community","fact_incident_care_monthly","fact_move_out","fact_occupancy_monthly","user_access"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_care_level
+ref table dim_date
+ref table DateTableTemplate_929550bb-e76e-40c1-b99b-2307bf0a2447
+ref table LocalDateTable_e9425527-0781-4f23-862d-9bf08f5586b1
+ref table dim_community
+ref table fact_incident_care_monthly
+ref table fact_move_out
+ref table LocalDateTable_1b5fcaa9-8ce0-4a7b-9074-a8d10fe3397e
+ref table LocalDateTable_52524033-9907-4d81-a533-783f9c5f48e8
+ref table fact_occupancy_monthly
+ref table user_access
+
+ref role 'Pinewood data access'
+
+ref cultureInfo en-IN
+

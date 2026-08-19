@@ -36,6 +36,21 @@
         },
         "type": "Categorical",
         "howCreated": "User"
+      },
+      {
+        "name": "9d98d855bec4c1cc0f5f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "user_access"
+              }
+            },
+            "Property": "user_principal_name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
       }
     ]
   },
