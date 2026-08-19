@@ -1,0 +1,34 @@
+table dim_care_level
+	lineageTag: 0a9a7764-a942-4933-9f88-f0fc77ca628f
+
+	column care_level_code
+		dataType: string
+		lineageTag: 663662e7-c956-40ce-9af1-ba49b92cd325
+		summarizeBy: none
+		sourceColumn: care_level_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column care_level_name
+		dataType: string
+		lineageTag: 5187887a-82c0-416f-b26f-4047269d0863
+		summarizeBy: none
+		sourceColumn: care_level_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_care_level = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("driver={DuckDB Driver};database=C:\Users\Shashank M R\PycharmProjects\copilot-worktrees\pinewood-fde-assessment\shashankmr531-urban-broccoli\pipeline\warehouse\pinewood.duckdb;access_mode=READ_ONLY;dsn=DuckDB", [HierarchicalNavigation=true]),
+				    pinewood_Database = Source{[Name="pinewood",Kind="Database"]}[Data],
+				    gold_Schema = pinewood_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_care_level_Table = gold_Schema{[Name="dim_care_level",Kind="Table"]}[Data]
+				in
+				    dim_care_level_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

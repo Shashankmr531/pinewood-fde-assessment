@@ -1,0 +1,50 @@
+table dim_community
+	lineageTag: 31624d44-b4db-4fd7-a16b-f347178147bb
+
+	column community_id
+		dataType: string
+		lineageTag: cf59f09d-6ef6-4a04-ac63-2c27b4bae50e
+		summarizeBy: none
+		sourceColumn: community_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column community_name
+		dataType: string
+		lineageTag: c935746e-addb-4166-85c6-0cb139a95cd4
+		summarizeBy: none
+		sourceColumn: community_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 8425d3c5-d37e-4160-8af0-8e556e7e6db0
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: e8c52ef6-1eb1-490b-b6f3-079068721553
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_community = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("driver={DuckDB Driver};database=C:\Users\Shashank M R\PycharmProjects\copilot-worktrees\pinewood-fde-assessment\shashankmr531-urban-broccoli\pipeline\warehouse\pinewood.duckdb;access_mode=READ_ONLY;dsn=DuckDB", [HierarchicalNavigation=true]),
+				    pinewood_Database = Source{[Name="pinewood",Kind="Database"]}[Data],
+				    gold_Schema = pinewood_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_community_Table = gold_Schema{[Name="dim_community",Kind="Table"]}[Data]
+				in
+				    dim_community_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,40 @@
+relationship 6e2ebf51-7d09-4790-9428-b0f1121c56a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.month_start
+	toColumn: LocalDateTable_e9425527-0781-4f23-862d-9bf08f5586b1.Date
+
+relationship 6bc81800-182d-43ec-ba5a-4751f6860d44
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_move_out.move_out_date
+	toColumn: LocalDateTable_1b5fcaa9-8ce0-4a7b-9074-a8d10fe3397e.Date
+
+relationship c60ba4d5-524f-4c3b-ad7c-8d2233702c5a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_move_out.move_out_month
+	toColumn: LocalDateTable_52524033-9907-4d81-a533-783f9c5f48e8.Date
+
+relationship AutoDetected_ad8bbf40-f2b5-4fd2-9b0d-365234abd610
+	fromColumn: fact_incident_care_monthly.community_id
+	toColumn: dim_community.community_id
+
+relationship AutoDetected_f1a61046-5cfc-40b2-9954-a8f76ed5631b
+	fromColumn: fact_move_out.community_id
+	toColumn: dim_community.community_id
+
+relationship AutoDetected_51ff057f-ba1f-4689-82b0-aff5b25e53a4
+	fromColumn: fact_occupancy_monthly.community_id
+	toColumn: dim_community.community_id
+
+relationship AutoDetected_ff0ac38e-da7f-4a72-8e09-363e919038b3
+	fromColumn: fact_incident_care_monthly.care_level
+	toColumn: dim_care_level.care_level_code
+
+relationship 62a630ca-eb1b-5cd4-e0c4-ef053d00b4b0
+	crossFilteringBehavior: bothDirections
+	fromColumn: fact_occupancy_monthly.month_start
+	toColumn: dim_date.month_start
+
+relationship c98c1e44-f77e-3942-83f2-03767e2b4785
+	fromColumn: fact_incident_care_monthly.month_start
+	toColumn: dim_date.month_start
+
