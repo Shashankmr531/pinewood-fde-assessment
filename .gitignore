@@ -7,5 +7,4 @@ pipeline/warehouse/**/*.parquet
 pipeline/warehouse/*.duckdb
 pipeline/warehouse/run_log.csv
 pipeline/warehouse/ingestion_manifest.json
-powerbi/*.SemanticModel
 .vscode/
