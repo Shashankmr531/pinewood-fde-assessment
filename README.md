@@ -146,7 +146,7 @@ to edit the report and validate the model and RLS roles.
 
 ## Walkthrough
 
-Recorded walkthrough link: https://example.com/loom-placeholder
+Recorded walkthrough link: https://drive.google.com/drive/folders/1V6h9pKSx76BbJ1MjnKSywHDmFkeH3beq?usp=drive_link
 
 The final walkthrough should cover:
 - architecture and tradeoffs
