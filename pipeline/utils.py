@@ -79,6 +79,17 @@ def append_log_rows(path: Path, rows: list[dict], columns: list[str]):
     log_df.to_csv(path, mode="a", header=not path.exists(), index=False)
 
 
+def append_duckdb_rows(db: duckdb.DuckDBPyConnection, table_name: str, rows: list[dict], columns: list[str]):
+    if not rows:
+        return
+    log_df = pd.DataFrame(rows).reindex(columns=columns)
+    db.register(f"log_{table_name}", log_df)
+    db.execute(f"CREATE SCHEMA IF NOT EXISTS audit")
+    db.execute(f"CREATE TABLE IF NOT EXISTS audit.{table_name} AS SELECT * FROM log_{table_name} LIMIT 0")
+    db.execute(f"INSERT INTO audit.{table_name} SELECT * FROM log_{table_name}")
+    db.unregister(f"log_{table_name}")
+
+
 def table_row_counts(db: duckdb.DuckDBPyConnection, schemas: list[str]):
     rows = []
     for schema in schemas:
