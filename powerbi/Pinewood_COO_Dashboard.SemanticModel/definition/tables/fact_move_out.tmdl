@@ -7,6 +7,15 @@ table fact_move_out
 		formatString: 0
 		lineageTag: b1780387-f086-4b18-82a1-3410294310e4
 
+	measure 'Trailing 90D Move-Out Rate %' =
+			
+			DIVIDE(
+			CALCULATE(COUNT(fact_move_out[move_out_id]), DATESINPERIOD(dim_date[month_start], MAX(dim_date[month_start]), -90, DAY)),
+			CALCULATE(SUM(fact_occupancy_monthly[occupied_units]), DATESINPERIOD(dim_date[month_start], MAX(dim_date[month_start]), -90, DAY))
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1c7caeaf-ef59-4226-b20e-d84cff40df42
+
 	column move_out_id
 		dataType: string
 		lineageTag: dc996c87-0404-4583-9a8a-535a2eb874c9

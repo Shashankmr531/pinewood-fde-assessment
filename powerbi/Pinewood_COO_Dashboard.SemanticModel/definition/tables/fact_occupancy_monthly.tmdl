@@ -1,19 +1,20 @@
 table fact_occupancy_monthly
 	lineageTag: b8ef815d-c064-40ba-9375-0ff08c838e5d
 
-	measure m_totaloccupiedUnits =
-			
-			
-			SUM('fact_occupancy_monthly'[occupied_units])
-		formatString: 0
-		lineageTag: 8cfa0839-dda5-4824-bea4-d3512ea613aa
-
 	measure m_occupancyrate =
 			
-			
-			DIVIDE( [m_totaloccupiedUnits], SUM('fact_occupancy_monthly'[total_units]) )
+			DIVIDE(SUM(fact_occupancy_monthly[occupied_units]), SUM(fact_occupancy_monthly[total_units]))
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: b3401693-d731-42b6-a126-6d697894b83e
+
+	measure 'm_ytd_Occupancy %' = ```
+			
+			CALCULATE([m_occupancyrate], DATESYTD(dim_date[month_start]))
+			
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a2bcac2b-6588-4f82-b492-bcec6d3a69ce
 
 	column community_id
 		dataType: string
