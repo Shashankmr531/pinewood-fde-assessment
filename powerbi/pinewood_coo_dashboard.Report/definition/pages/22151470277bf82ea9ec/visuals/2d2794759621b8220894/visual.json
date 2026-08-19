@@ -306,51 +306,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "287796c14d7b99b7c6a3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_occupancy_monthly"
-              }
-            },
-            "Property": "m_occupancyrate"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "49fe68cb5ee1fd141ea8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_incident_care_monthly"
-              }
-            },
-            "Property": "m_IncidentRatePer100ResidentDays"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d674899550f15d48ff84",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_move_out"
-              }
-            },
-            "Property": "m_MoveOutCount"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

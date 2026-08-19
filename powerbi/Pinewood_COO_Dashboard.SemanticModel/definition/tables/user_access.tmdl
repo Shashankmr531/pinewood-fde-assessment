@@ -1,0 +1,49 @@
+table user_access
+	lineageTag: 55e092b6-516f-4935-b33f-704a9383c3d7
+
+	column user_principal_name
+		dataType: string
+		lineageTag: 1710f9e7-bbba-494f-886d-38cb65405535
+		summarizeBy: none
+		sourceColumn: user_principal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column community_id
+		dataType: string
+		lineageTag: f47cfdf2-a0aa-466a-90de-efcb658069f0
+		summarizeBy: none
+		sourceColumn: community_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 7c206f88-28c1-4a7e-81a2-c0509b66b99f
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column role
+		dataType: string
+		lineageTag: 16205e6a-1042-429a-ab16-4c1726dd6f6f
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	partition user_access = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\Shashank M R\PycharmProjects\copilot-worktrees\pinewood-fde-assessment\shashank-mr-fde-assignment\data\user_access.csv"), [Delimiter = ",", Columns = 4, QuoteStyle = QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"user_principal_name", type text}, {"community_id", type text}, {"region", type text}, {"role", type text}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

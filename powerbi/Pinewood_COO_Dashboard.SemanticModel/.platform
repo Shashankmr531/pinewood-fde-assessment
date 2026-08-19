@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Pinewood_COO_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "66059093-156a-4ab9-81f8-2d7e27e3ede7"
+  }
+}

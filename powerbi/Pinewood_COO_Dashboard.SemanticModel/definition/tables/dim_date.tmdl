@@ -1,0 +1,58 @@
+table dim_date
+	lineageTag: 21ea5ee3-1589-43c1-8ef7-bea277f6e2b2
+
+	column month_start
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 790fb213-96a8-478b-bda6-bfc978a4ec21
+		summarizeBy: none
+		sourceColumn: month_start
+
+		variation Variation
+			isDefault
+			relationship: 6e2ebf51-7d09-4790-9428-b0f1121c56a4
+			defaultHierarchy: LocalDateTable_e9425527-0781-4f23-862d-9bf08f5586b1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 48dbbfde-6170-4c28-a814-94f91938f6ec
+		summarizeBy: sum
+		sourceColumn: year_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 049f6618-376a-416b-9ae8-8cca792c2505
+		summarizeBy: sum
+		sourceColumn: month_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: f54e9a8c-7865-4289-ab70-6e89adfe3a53
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("driver={DuckDB Driver};database=C:\Users\Shashank M R\PycharmProjects\copilot-worktrees\pinewood-fde-assessment\shashank-mr-fde-assignment\pipeline\warehouse\pinewood.duckdb;access_mode=READ_ONLY;dsn=DuckDB", [HierarchicalNavigation=true]),
+				    pinewood_Database = Source{[Name="pinewood",Kind="Database"]}[Data],
+				    gold_Schema = pinewood_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dim_date_Table = gold_Schema{[Name="dim_date",Kind="Table"]}[Data]
+				in
+				    dim_date_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
