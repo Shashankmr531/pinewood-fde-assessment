@@ -1,0 +1,386 @@
+{
+  "adp_shifts_2025_01.csv": {
+    "file_hash": "8e4872ced6e3c34ed26d12ff05f1f412c9db1e1fb65780797c8351e02539f469",
+    "ingested_at_utc": "2026-08-19T04:41:24Z",
+    "period": "2025_01",
+    "rows_in": 11483,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "adp_shifts_2025_02.csv": {
+    "file_hash": "3b1d68c50cae4a84bfa8f09b75fafd0cde71e958d4bd54598cfee9613920b32e",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 11472,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "adp_shifts_2025_03.csv": {
+    "file_hash": "a13cd65188814ff13c68f52c90e3fa406bab190538bfa01e1652753994a8e410",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 10743,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "adp_shifts_2025_04.csv": {
+    "file_hash": "1f248b219fbe42f9d3577088228e77764a553dc0e5c39c568df1b3579d534476",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 11416,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "adp_shifts_2025_05.csv": {
+    "file_hash": "59882240b0109c32e8f76a1127c311e56c6e49d28d4b6693c3d13c75c0774338",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 11433,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "adp_shifts_2025_06.csv": {
+    "file_hash": "68cab6ef329d6d87d403f97e33d95ea3c678f454ff406411524158a3f00a0a6c",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 11524,
+    "source": "adp",
+    "table": "shifts"
+  },
+  "gbp_reviews_2025_01.csv": {
+    "file_hash": "ed5491ad7be5936085b22921846043dab75263f07a7ed8313f383c32dbce85bf",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 73,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "gbp_reviews_2025_02.csv": {
+    "file_hash": "3b93a0f7d4fd73b0c0d48b3e473bfb027dbcf583b406bfd79e8a9e05a76c79f6",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 61,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "gbp_reviews_2025_03.csv": {
+    "file_hash": "856b5f1f210260c307a4b7f80ca752365f7f143247aec855d5dcefc6712bce9b",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 66,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "gbp_reviews_2025_04.csv": {
+    "file_hash": "cee06be1ae80cfe2bcabbfca87a2b9384021125d620796008042c3be96c9c9f2",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 55,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "gbp_reviews_2025_05.csv": {
+    "file_hash": "2f6f80d09d9fd4b479665722757ba153b9bcfaef70a19ec052cb7acbc665d746",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 81,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "gbp_reviews_2025_06.csv": {
+    "file_hash": "724174a5b5511ee9a722b3e0269ffd91a61487d276c14b4b0575f8ebc69e86d4",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 88,
+    "source": "gbp",
+    "table": "reviews"
+  },
+  "hubspot_leads_2025_01.csv": {
+    "file_hash": "5f74da00b610955dc65548ece8459d1a81d0cafe76f12079335bfb11b4363faa",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 142,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "hubspot_leads_2025_02.csv": {
+    "file_hash": "5c57d4c7a0da43757ec78b54a5df21c81e96430be70158e52554325f0c8c6795",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 130,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "hubspot_leads_2025_03.csv": {
+    "file_hash": "f40ec2f8b416f8683dba81affe721abcc168815921d1ef2e5a5deb9a8367ef83",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 113,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "hubspot_leads_2025_04.csv": {
+    "file_hash": "b4badacdf6f23d1569ae99cf8d2cf800ad3df2e02c55eb91585b047277a3cd36",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 138,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "hubspot_leads_2025_05.csv": {
+    "file_hash": "e04e2081af44918a5e7ba71578d0580ce71589ce14579e8392ff395bd02c0ea1",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 146,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "hubspot_leads_2025_06.csv": {
+    "file_hash": "5c3f2e270d745bb224c4566956d2cd06c055b5019cc000e5bd2884d3a267d700",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 161,
+    "source": "hubspot",
+    "table": "leads"
+  },
+  "pcc_care_history_2025_01.csv": {
+    "file_hash": "d73925f7ea8cc8ada1a1af9760e59e56d0c8365a9702b408a1d8036ba8a55422",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 38,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_care_history_2025_02.csv": {
+    "file_hash": "1e08074b520a0db81a66d912cebf8f861568de907ccc7c343debe1e813f24b92",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 59,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_care_history_2025_03.csv": {
+    "file_hash": "e024f272763e014a32caeea7cababc33b90fea0eaafc9fc39087804a78344bd6",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 49,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_care_history_2025_04.csv": {
+    "file_hash": "795cf60457a4dc24c96e568b72f135a78fd4003069e5f8a70b5a711492ea0183",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 61,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_care_history_2025_05.csv": {
+    "file_hash": "c574323702872a89229775acfaa6ebd70aa204be269e90b8c057df77f3b49eb1",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 53,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_care_history_2025_06.csv": {
+    "file_hash": "6b9a547d4b597af0dd8c53ba4dd229d2f72430f4dd4c90944fc02a85e884459f",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 43,
+    "source": "pcc",
+    "table": "care_history"
+  },
+  "pcc_incidents_2025_01.csv": {
+    "file_hash": "879542a79f5a1600c35bf3f1a9304bc110e3dafe2107f0bcd4ea949499ac73d8",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 58,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_incidents_2025_02.csv": {
+    "file_hash": "614460020d52f220f3488ceec9ff278ae5e1f74c33cc8d53083729b63de8d245",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 63,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_incidents_2025_03.csv": {
+    "file_hash": "ee9f35ec1bf135df24c86936d452ebab3770852e7fe0af67b53d6dfd65128308",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 68,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_incidents_2025_04.csv": {
+    "file_hash": "2a5e586fc05889f165e7e64e8f7ad7d8b2a7180e2006648552d462403fbc78b1",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 72,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_incidents_2025_05.csv": {
+    "file_hash": "833dfc12a6945c6e1622bb75a3cc69f2cc31d07a6ea42b94c72e83b037dde0f1",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 74,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_incidents_2025_06.csv": {
+    "file_hash": "ed4b5d0cd0c3dd4f22d9b4b649a6c6b925ddad0b0969c5eaa0da344a1855a506",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 76,
+    "source": "pcc",
+    "table": "incidents"
+  },
+  "pcc_residents_2025_01.csv": {
+    "file_hash": "2245b957630b057230e3737392baef3cbe60e1cd3ed5e2ece653cd2b9215e74c",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 588,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "pcc_residents_2025_02.csv": {
+    "file_hash": "1e1ccb4e0608f217effa2cd81a31caa01351392c212f9425072eb69ac02a68d5",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 642,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "pcc_residents_2025_03.csv": {
+    "file_hash": "65c8d1a26763ee6abc46e901de3b8f20f467f98b65b710a1c7e45657ad23ebb2",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 683,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "pcc_residents_2025_04.csv": {
+    "file_hash": "11d71838054dd7db9fa4e1867211aeece048a548337e2893ab32c8a9b7882c80",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 723,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "pcc_residents_2025_05.csv": {
+    "file_hash": "c27832f69953c7232f3150444a5874b44ffd8b6cd027d23deec2411edbbbdf15",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 747,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "pcc_residents_2025_06.csv": {
+    "file_hash": "c2f08061c4b1162be30c018eee060e05c07f63e53db19ef59746cb0d28f4ec28",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 769,
+    "source": "pcc",
+    "table": "residents"
+  },
+  "yardi_leases_2025_01.csv": {
+    "file_hash": "89005c02b5d656871ef5c720d09db0464fbe0fbe4e068a82a0a57952b27575b6",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 41,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_leases_2025_02.csv": {
+    "file_hash": "b606e71b32cc075bdaec4b2b20d28118e2d9d1b4f1f92c788e697dfb79dbd9ed",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 58,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_leases_2025_03.csv": {
+    "file_hash": "9036134ca4b03d400526ce12989da7f64520776eebe5216487be6c31c4890525",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 62,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_leases_2025_04.csv": {
+    "file_hash": "0cc94313c91a7d8fcc09c6f11d2c0f9ea3613114a1d147408280fea6f6684d84",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 65,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_leases_2025_05.csv": {
+    "file_hash": "63f8f57f9acf8ab778fab6e25ebf8c33f894e936201b1dec81128744eca51b77",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 57,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_leases_2025_06.csv": {
+    "file_hash": "787fb2b1b3518c73203c8f690ae25f65702baed37c1b65a1736535824c312a43",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 63,
+    "source": "yardi",
+    "table": "leases"
+  },
+  "yardi_units_2025_01.csv": {
+    "file_hash": "45736f3b30c83a46ace8c5a464d9228c782acbf0a1b13f06c5327604c4fb2397",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_01",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  },
+  "yardi_units_2025_02.csv": {
+    "file_hash": "6030b50705fef72c63920f62b24f3ed7a0f0486a66bf733aa663b67464a512f2",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_02",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  },
+  "yardi_units_2025_03.csv": {
+    "file_hash": "f3259f3b3bf2ca2c4d9308f775bd8bf130745987c2a81f252184e49ea034deb3",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_03",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  },
+  "yardi_units_2025_04.csv": {
+    "file_hash": "39d6503df2cbe9935dbb167928eb7037838c851f53c82afcccebf680dee74dfd",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_04",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  },
+  "yardi_units_2025_05.csv": {
+    "file_hash": "ea96faac308bdaa47cedbd56f7cc3f25edc95f9af5b97e0c13d568dafc28a89a",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_05",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  },
+  "yardi_units_2025_06.csv": {
+    "file_hash": "37d916023c31f2a62f9e453b8480d7aea3d33e9ffe4891988d9746de0aca0366",
+    "ingested_at_utc": "2026-08-19T04:41:25Z",
+    "period": "2025_06",
+    "rows_in": 915,
+    "source": "yardi",
+    "table": "units"
+  }
+}
