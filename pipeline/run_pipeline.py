@@ -8,13 +8,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import duckdb
 import pandas as pd
 
 from pipeline.bronze import build_bronze
 from pipeline.config import build_paths
 from pipeline.gold import build_gold
 from pipeline.silver import build_silver
-from pipeline.utils import append_log_rows, table_row_counts, utc_now
+from pipeline.utils import append_duckdb_rows, table_row_counts, utc_now
 
 
 class PipelineRunner:
@@ -63,7 +64,7 @@ class PipelineRunner:
         finally:
             if db is not None:
                 db.close()
-            self._write_audit_logs(run_id, run_started_at, run_timer, run_status, current_stage, error_message, stage_logs, table_logs)
+            self._write_audit_logs(run_id, run_started_at, run_timer, run_status, current_stage, error_message, run_log, stage_logs, table_logs)
 
         if run_status == "failed":
             print(f"\nPinewood ETL run {run_id} failed in {current_stage}: {error_message}")
@@ -72,7 +73,7 @@ class PipelineRunner:
         summary = pd.DataFrame(run_log).groupby("status").agg(rows_rejected=("rows_rejected", "sum"), rows_loaded=("rows_loaded", "sum")).reset_index()
         print(f"\nPinewood ETL run {run_id} complete.")
         print(summary.to_string(index=False))
-        print("\nDetailed logs written to pipeline/warehouse/run_log.csv, pipeline/warehouse/stage_run_log.csv, pipeline/warehouse/table_run_log.csv, and pipeline/warehouse/pipeline_runs.csv")
+        print("\nAll pipeline, Bronze file, stage, and table logs are in the audit schema of pipeline/warehouse/pinewood.duckdb.")
         print("Gold tables written to pipeline/warehouse/pinewood.duckdb")
 
     def _prepare_directories(self):
@@ -84,10 +85,16 @@ class PipelineRunner:
     def _stage_record(run_id, stage, started_at, stage_timer, input_rows, output_rows, details):
         return {"run_id": run_id, "stage": stage, "status": "succeeded", "started_at_utc": started_at, "completed_at_utc": utc_now(), "duration_seconds": round(time.perf_counter() - stage_timer, 3), "input_rows": input_rows, "output_rows": output_rows, "details": details}
 
-    def _write_audit_logs(self, run_id, started_at, run_timer, status, failed_stage, error, stage_logs, table_logs):
-        append_log_rows(self.paths["pipeline_runs_path"], [{"run_id": run_id, "started_at_utc": started_at, "completed_at_utc": utc_now(), "duration_seconds": round(time.perf_counter() - run_timer, 3), "status": status, "failed_stage": failed_stage if status == "failed" else "", "error": error}], ["run_id", "started_at_utc", "completed_at_utc", "duration_seconds", "status", "failed_stage", "error"])
-        append_log_rows(self.paths["table_run_log_path"], table_logs, ["run_id", "layer", "table_name", "rows_written", "status"])
-        append_log_rows(self.paths["stage_run_log_path"], stage_logs, ["run_id", "stage", "status", "started_at_utc", "completed_at_utc", "duration_seconds", "input_rows", "output_rows", "details"])
+    def _write_audit_logs(self, run_id, started_at, run_timer, status, failed_stage, error, run_log, stage_logs, table_logs):
+        db = duckdb.connect(str(self.paths["db_path"]))
+        try:
+            bronze_logs = [{"run_id": run_id, "logged_at_utc": utc_now(), **row} for row in run_log]
+            append_duckdb_rows(db, "bronze_file_log", bronze_logs, ["run_id", "logged_at_utc", "source", "source_table", "file_name", "file_hash", "rows_in", "rows_loaded", "rows_rejected", "status", "notes"])
+            append_duckdb_rows(db, "pipeline_runs", [{"run_id": run_id, "started_at_utc": started_at, "completed_at_utc": utc_now(), "duration_seconds": round(time.perf_counter() - run_timer, 3), "status": status, "failed_stage": failed_stage if status == "failed" else "", "error": error}], ["run_id", "started_at_utc", "completed_at_utc", "duration_seconds", "status", "failed_stage", "error"])
+            append_duckdb_rows(db, "stage_run_log", stage_logs, ["run_id", "stage", "status", "started_at_utc", "completed_at_utc", "duration_seconds", "input_rows", "output_rows", "details"])
+            append_duckdb_rows(db, "table_run_log", table_logs, ["run_id", "layer", "table_name", "rows_written", "status"])
+        finally:
+            db.close()
 
 
 if __name__ == "__main__":

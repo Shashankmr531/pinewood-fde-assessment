@@ -60,11 +60,6 @@ def build_bronze(paths: dict, run_id: str):
                 rejected_files += 1
 
         save_manifest(paths["manifest_path"], manifest)
-        log_df = pd.DataFrame(run_log)
-        log_df.insert(0, "run_id", run_id)
-        log_df.insert(1, "logged_at_utc", utc_now())
-        log_df.to_csv(paths["run_log_path"], index=False)
-
         if ingested_files == 0 and skipped_files == 0 and rejected_files == 0:
             print("No source files detected. Nothing to process.")
         elif ingested_files == 0 and skipped_files > 0 and rejected_files == 0:
