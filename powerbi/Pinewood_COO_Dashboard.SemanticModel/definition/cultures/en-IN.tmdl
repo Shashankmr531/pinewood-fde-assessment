@@ -1188,16 +1188,13 @@ cultureInfo en-IN
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "community id": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "id": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -1313,8 +1310,7 @@ cultureInfo en-IN
 			            "Weight": 0.466
 			          }
 			        }
-			      ],
-			      "NameType": "Identifier"
+			      ]
 			    },
 			    "dim_community.community_name": {
 			      "Definition": {
@@ -5239,39 +5235,6 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
-			    "fact_occupancy_monthly.m_totaloccupied_units": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_occupancy_monthly",
-			          "ConceptualProperty": "m_totaloccupiedUnits"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "m totaloccupied units": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "m_totaloccupiedUnits": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "m totaloccupied unit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.846
-			          }
-			        }
-			      ]
-			    },
 			    "fact_occupancy_monthly.m_occupancyrate": {
 			      "Definition": {
 			        "Binding": {
@@ -5592,9 +5555,6 @@ cultureInfo en-IN
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "community id": {
@@ -5917,9 +5877,143 @@ cultureInfo en-IN
 			          }
 			        }
 			      ]
+			    },
+			    "fact_move_out.trailing_90D_moveout_rate_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_move_out",
+			          "ConceptualProperty": "Trailing 90D Move-Out Rate %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trailing 90D move-out rate %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "trailing 90D move out rate %": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_occupancy_monthly.m_ytd_Occupancy_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_occupancy_monthly",
+			          "ConceptualProperty": "m_ytd_Occupancy %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "m_ytd_Occupancy %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "m_ytd_occupancy percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "m_ytd_occupancy pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "YTD Occupancy %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fact_move_out_move_out_date_date_hierarchy_has_fact_move_out_move_out_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_move_out"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_move_out.move_out_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_move_out.move_out_date.date_hierarchy"
+			          }
+			        },
+			        "fact_move_out.move_out_date.quarter": {
+			          "Target": {
+			            "Entity": "fact_move_out.move_out_date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_move_out.move_out_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_move_out.move_out_date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "move_out_date_hierarchy_have_move_out_quarter"
+			        }
+			      ]
+			    },
+			    "fact_move_out_move_out_date_date_hierarchy_has_fact_move_out_move_out_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_move_out"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_move_out.move_out_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_move_out.move_out_date.date_hierarchy"
+			          }
+			        },
+			        "fact_move_out.move_out_date.year": {
+			          "Target": {
+			            "Entity": "fact_move_out.move_out_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_move_out.move_out_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_move_out.move_out_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "move_out_date_hierarchy_have_move_out_year"
+			        }
+			      ]
+			    },
 			    "fact_move_out_move_out_date_has_date_hierarchy": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_move_out"
@@ -6115,52 +6209,6 @@ cultureInfo en-IN
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "month_starts_have_month_start_date_hierarchies"
-			        }
-			      ]
-			    },
-			    "user_access_has_dim_community": {
-			      "Binding": {
-			        "ConceptualEntity": "user_access"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "user_access": {
-			          "Target": {
-			            "Entity": "user_access"
-			          }
-			        },
-			        "dim_community": {
-			          "Target": {
-			            "Entity": "dim_community"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "user_access"
-			            },
-			            "Object": {
-			              "Role": "dim_community"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "user_accesses_have_dim_communities"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_community"
-			            },
-			            "Object": {
-			              "Role": "user_access"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_communities_have_user_accesses"
 			        }
 			      ]
 			    },
@@ -6440,6 +6488,138 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
+			    "dim_community_has_user_access": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_community"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_community": {
+			          "Target": {
+			            "Entity": "dim_community"
+			          }
+			        },
+			        "user_access": {
+			          "Target": {
+			            "Entity": "user_access"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_community"
+			            },
+			            "Object": {
+			              "Role": "user_access"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_communities_have_user_accesses"
+			        }
+			      ]
+			    },
+			    "fact_occupancy_monthly_has_m_ytd_Occupancy_": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_occupancy_monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_occupancy_monthly": {
+			          "Target": {
+			            "Entity": "fact_occupancy_monthly"
+			          }
+			        },
+			        "fact_occupancy_monthly.m_ytd_Occupancy_": {
+			          "Target": {
+			            "Entity": "fact_occupancy_monthly.m_ytd_Occupancy_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_occupancy_monthly"
+			            },
+			            "Object": {
+			              "Role": "fact_occupancy_monthly.m_ytd_Occupancy_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_occupancy_monthlies_have_m_ytd_Occupancy_"
+			        }
+			      ]
+			    },
+			    "fact_occupancy_monthly_has_fact_move_out_trailing_90D_moveout_rate_": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_occupancy_monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_occupancy_monthly": {
+			          "Target": {
+			            "Entity": "fact_occupancy_monthly"
+			          }
+			        },
+			        "fact_move_out.trailing_90D_moveout_rate_": {
+			          "Target": {
+			            "Entity": "fact_move_out.trailing_90D_moveout_rate_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_occupancy_monthly"
+			            },
+			            "Object": {
+			              "Role": "fact_move_out.trailing_90D_moveout_rate_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_occupancy_monthlies_have_trailing_90D_moveout_rate_"
+			        }
+			      ]
+			    },
+			    "fact_move_out_has_trailing_90D_moveout_rate_": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_move_out"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_move_out": {
+			          "Target": {
+			            "Entity": "fact_move_out"
+			          }
+			        },
+			        "fact_move_out.trailing_90D_moveout_rate_": {
+			          "Target": {
+			            "Entity": "fact_move_out.trailing_90D_moveout_rate_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_move_out"
+			            },
+			            "Object": {
+			              "Role": "fact_move_out.trailing_90D_moveout_rate_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_move_out_have_trailing_90D_moveout_rate_"
+			        }
+			      ]
+			    },
 			    "user_access_has_role": {
 			      "Binding": {
 			        "ConceptualEntity": "user_access"
@@ -6519,6 +6699,39 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
+			    "user_access_has_community_id": {
+			      "Binding": {
+			        "ConceptualEntity": "user_access"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "user_access": {
+			          "Target": {
+			            "Entity": "user_access"
+			          }
+			        },
+			        "user_access.community_id": {
+			          "Target": {
+			            "Entity": "user_access.community_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "user_access"
+			            },
+			            "Object": {
+			              "Role": "user_access.community_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "user_accesses_have_community_ids"
+			        }
+			      ]
+			    },
 			    "user_access_has_user_principal_name": {
 			      "Binding": {
 			        "ConceptualEntity": "user_access"
@@ -6582,39 +6795,6 @@ cultureInfo en-IN
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_occupancy_monthlies_have_m_occupancyrate"
-			        }
-			      ]
-			    },
-			    "fact_occupancy_monthly_has_m_totaloccupied_units": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_occupancy_monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_occupancy_monthly": {
-			          "Target": {
-			            "Entity": "fact_occupancy_monthly"
-			          }
-			        },
-			        "fact_occupancy_monthly.m_totaloccupied_units": {
-			          "Target": {
-			            "Entity": "fact_occupancy_monthly.m_totaloccupied_units"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_occupancy_monthly"
-			            },
-			            "Object": {
-			              "Role": "fact_occupancy_monthly.m_totaloccupied_units"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_occupancy_monthlies_have_m_totaloccupied_units"
 			        }
 			      ]
 			    },
@@ -7302,52 +7482,6 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
-			    "dim_community_has_community_id": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_community"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_community": {
-			          "Target": {
-			            "Entity": "dim_community"
-			          }
-			        },
-			        "dim_community.community_id": {
-			          "Target": {
-			            "Entity": "dim_community.community_id"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_community"
-			            },
-			            "Object": {
-			              "Role": "dim_community.community_id"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_communities_have_community_ids"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "dim_community"
-			            },
-			            "Name": {
-			              "Role": "dim_community.community_id"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "community_ids_are_names_IDs_of_dim_communities"
-			        }
-			      ]
-			    },
 			    "dim_date_has_month_name": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_date"
@@ -7788,72 +7922,6 @@ cultureInfo en-IN
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "fact_move_out_are_outed_on_move_out_date"
-			        }
-			      ]
-			    },
-			    "fact_move_out_move_out_date_date_hierarchy_has_fact_move_out_move_out_date_year": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_move_out"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_move_out.move_out_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_move_out.move_out_date.date_hierarchy"
-			          }
-			        },
-			        "fact_move_out.move_out_date.year": {
-			          "Target": {
-			            "Entity": "fact_move_out.move_out_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_move_out.move_out_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_move_out.move_out_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "move_out_date_hierarchy_have_move_out_year"
-			        }
-			      ]
-			    },
-			    "fact_move_out_move_out_date_date_hierarchy_has_fact_move_out_move_out_date_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_move_out"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_move_out.move_out_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_move_out.move_out_date.date_hierarchy"
-			          }
-			        },
-			        "fact_move_out.move_out_date.quarter": {
-			          "Target": {
-			            "Entity": "fact_move_out.move_out_date.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_move_out.move_out_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_move_out.move_out_date.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "move_out_date_hierarchy_have_move_out_quarter"
 			        }
 			      ]
 			    },
