@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "114d7ee2bfedf1ada1e6",
+  "position": {
+    "x": 642.02888340965126,
+    "y": 461.68369144064809,
+    "z": 7000,
+    "height": 245.26946107784431,
+    "width": 620.38746037337091,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_move_out"
+                    }
+                  },
+                  "Property": "move_out_reason"
+                }
+              },
+              "queryRef": "fact_move_out.move_out_reason",
+              "nativeQueryRef": "Move Out Reasons",
+              "active": true,
+              "displayName": "Move Out Reasons"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_move_out"
+                    }
+                  },
+                  "Property": "m_MoveOutCount"
+                }
+              },
+              "queryRef": "fact_move_out.m_MoveOutCount",
+              "nativeQueryRef": "m_MoveOutCount"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_move_out"
+                  }
+                },
+                "Property": "m_MoveOutCount"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Move Out Reasons Count'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -106,6 +106,14 @@ RLS:
 
 The source-controlled Power BI metadata is in `powerbi/pinewood_coo_dashboard.pbip`.
 
+## Open the Power BI project
+
+Open `powerbi/Pinewood_COO_Dashboard.pbip` with Power BI Desktop. The PBIP project
+uses the generated report folder `powerbi/pinewood_coo_dashboard.Report/` and
+semantic model folder `powerbi/Pinewood_COO_Dashboard.SemanticModel/`. These are
+the three Power BI artifacts kept in source control; Power BI Desktop is required
+to edit the report and validate the model and RLS roles.
+
 ## Anomalies Found
 
 1. Care level values drift across source files (e.g., `Assisted Living`, `Independent`, `Memory`, `AL`, `IL`, `MC`).

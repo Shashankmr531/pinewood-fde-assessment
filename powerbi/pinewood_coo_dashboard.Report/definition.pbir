@@ -1,8 +1,8 @@
 {
-  "version": "1.0",
+  "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../pinewood_coo_dashboard.SemanticModel"
+      "path": "../Pinewood_COO_Dashboard.SemanticModel"
     }
   }
 }
