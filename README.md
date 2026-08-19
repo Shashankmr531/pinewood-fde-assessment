@@ -4,13 +4,17 @@ This repo contains a rerunnable Python ETL pipeline, a Gold-layer SQL model, and
 
 ## Project structure
 
-- `data/` - extracted source CSVs from the provided Pinewood dataset
-- `pipeline/run_pipeline.py` - Bronze/Silver/Gold ingestion and transformation pipeline
-- `pipeline/warehouse/` - generated DuckDB database, parquet bronze files, and run log
+- `data/candidate_package/data/` - extracted source CSVs from the provided Pinewood dataset
+- `pipeline/run_pipeline.py` - thin executable entry point
+- `pipeline/orchestrator.py` - `PipelineOrchestrator` stage sequencing, lifecycle, and audit logging
+- `pipeline/bronze.py` - source-file ingestion and Bronze Parquet creation
+- `pipeline/silver.py` - source-specific cleaning and Silver table creation
+- `pipeline/gold.py` - Gold dimensions and fact modeling
+- `pipeline/config.py`, `pipeline/constants.py`, `pipeline/utils.py` - shared configuration, mappings, and infrastructure helpers
+- `pipeline/warehouse/` - generated DuckDB database, parquet bronze files, manifest, and run log
 - `sql/ddl_gold.sql` - Gold-layer DDL
 - `sql/queries_gold.sql` - occupancy, move-out, and incident-rate SQL
 - `powerbi/` - Power BI project metadata for the COO dashboard
-- `communication/email_to_karen.md` - access request email to the client
 
 ## Setup and run
 
@@ -22,6 +26,15 @@ python pipeline/run_pipeline.py
 ```
 
 This command creates or refreshes the warehouse database at `pipeline/warehouse/pinewood.duckdb`, writes raw bronze parquet files under `pipeline/warehouse/bronze`, and rebuilds the Silver and Gold marts in DuckDB.
+
+The pipeline uses a simple ingestion manifest (`pipeline/warehouse/ingestion_manifest.json`) to detect files that were already processed. If the same CSV hash is seen again, it is marked as `skipped`; otherwise it is ingested as `processed`. Files that fail validation are written to the run log as `rejected`.
+
+Detailed audit logs are also written to `pipeline/warehouse/`:
+
+- `run_log.csv` - latest source-file results, including processed, skipped, and rejected files
+- `pipeline_runs.csv` - append-only run history with duration, status, and failed stage
+- `stage_run_log.csv` - Bronze, Silver, and Gold timing and row-count summaries
+- `table_run_log.csv` - Silver and Gold table row counts for each run
 
 ## Architecture and tradeoffs
 
@@ -122,10 +135,6 @@ The source-controlled Power BI metadata is in `powerbi/pinewood_coo_dashboard.pb
 7. Some resident discharge dates are blank or invalid and need quarantine logic.
    - Handling: invalid dates are quarantined or nullified in the pipeline; valid rows remain in Silver.
    - Why: a bad date would create false resident-days or occupancy spikes and should not be silently coerced into a wrong value.
-
-## Client email
-
-The client email draft is in `communication/email_to_karen`.
 
 ## Walkthrough
 
