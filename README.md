@@ -29,12 +29,12 @@ This command creates or refreshes the warehouse database at `pipeline/warehouse/
 
 The pipeline uses a simple ingestion manifest (`pipeline/warehouse/ingestion_manifest.json`) to detect files that were already processed. If the same CSV hash is seen again, it is marked as `skipped`; otherwise it is ingested as `processed`. Files that fail validation are written to the run log as `rejected`.
 
-Detailed audit logs are also written to `pipeline/warehouse/`:
+All operational logs are centralized in the `audit` schema of `pipeline/warehouse/pinewood.duckdb`:
 
-- `run_log.csv` - latest source-file results, including processed, skipped, and rejected files
-- `pipeline_runs.csv` - append-only run history with duration, status, and failed stage
-- `stage_run_log.csv` - Bronze, Silver, and Gold timing and row-count summaries
-- `table_run_log.csv` - Silver and Gold table row counts for each run
+- `audit.bronze_file_log` - source-file results, including processed, skipped, and rejected files
+- `audit.pipeline_runs` - append-only run history with duration, status, and failed stage
+- `audit.stage_run_log` in DuckDB - Bronze, Silver, and Gold timing and row-count summaries
+- `audit.table_run_log` in DuckDB - Silver and Gold table row counts for each run
 
 ## Architecture and tradeoffs
 
