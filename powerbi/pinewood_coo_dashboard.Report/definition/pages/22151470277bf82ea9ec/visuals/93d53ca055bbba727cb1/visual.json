@@ -98,42 +98,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9003b90ed631ef6e22a3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_community"
-              }
-            },
-            "Property": "community_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b3df4f77621275ef6db2",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_occupancy_monthly"
-                  }
-                },
-                "Property": "occupied_units"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

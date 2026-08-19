@@ -1,0 +1,7 @@
+role 'Pinewood data access'
+	modelPermission: read
+
+	tablePermission user_access = [user_principal_name] == USERNAME()
+
+	annotation PBI_Id = 53d5f6eb4328425c9fe9754ed41cdbd6
+

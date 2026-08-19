@@ -95,37 +95,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "73c105c3a8e6f89c21cb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_move_out"
-              }
-            },
-            "Property": "move_out_reason"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6c398e90f6b2a22e091b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_move_out"
-              }
-            },
-            "Property": "m_MoveOutCount"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
