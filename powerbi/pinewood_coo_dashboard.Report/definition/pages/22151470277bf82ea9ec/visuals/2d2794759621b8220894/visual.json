@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "2d2794759621b8220894",
   "position": {
-    "x": 630.486791123635,
-    "y": 77.909122930609371,
+    "x": 443.16676805422782,
+    "y": 65.852090032154337,
     "z": 2000,
-    "height": 82.237407537865451,
-    "width": 584.3184219795703,
+    "height": 94.328669505518377,
+    "width": 818.70165985921608,
     "tabOrder": 1000
   },
   "visual": {
@@ -35,6 +35,21 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "fact_occupancy_monthly"
+                    }
+                  },
+                  "Property": "m_ytd_Occupancy %"
+                }
+              },
+              "queryRef": "fact_occupancy_monthly.m_ytd_Occupancy %",
+              "nativeQueryRef": "YTD Occupancy %",
+              "displayName": "YTD Occupancy %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "fact_incident_care_monthly"
                     }
                   },
@@ -53,12 +68,11 @@
                       "Entity": "fact_move_out"
                     }
                   },
-                  "Property": "m_MoveOutCount"
+                  "Property": "Trailing 90D Move-Out Rate %"
                 }
               },
-              "queryRef": "fact_move_out.m_MoveOutCount",
-              "nativeQueryRef": "Move Out Count",
-              "displayName": "Move Out Count"
+              "queryRef": "fact_move_out.Trailing 90D Move-Out Rate %",
+              "nativeQueryRef": "Trailing 90D Move-Out Rate %"
             }
           ]
         }
@@ -70,10 +84,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "fact_incident_care_monthly"
+                    "Entity": "fact_occupancy_monthly"
                   }
                 },
-                "Property": "m_IncidentRatePer100ResidentDays"
+                "Property": "m_occupancyrate"
               }
             },
             "direction": "Descending"
@@ -306,5 +320,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7ee2c4bfdf404d490bf9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_occupancy_monthly"
+              }
+            },
+            "Property": "m_occupancyrate"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7e63938f2a0a415d8ba3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_incident_care_monthly"
+              }
+            },
+            "Property": "m_IncidentRatePer100ResidentDays"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1956c7f842128fb268c8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_occupancy_monthly"
+              }
+            },
+            "Property": "m_ytd_Occupancy %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bbf43648d54f0bdd0f42",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_move_out"
+              }
+            },
+            "Property": "Trailing 90D Move-Out Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

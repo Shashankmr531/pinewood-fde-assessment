@@ -5,7 +5,7 @@
     "x": 20.198661500528356,
     "y": 177.45966889749911,
     "z": 4000,
-    "height": 274.12469179288485,
+    "height": 259.69707643536458,
     "width": 610.28812962310678,
     "tabOrder": 4000
   },
@@ -48,6 +48,21 @@
               "queryRef": "fact_occupancy_monthly.m_occupancyrate",
               "nativeQueryRef": "Ocupancy Rate",
               "displayName": "Ocupancy Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_occupancy_monthly"
+                    }
+                  },
+                  "Property": "m_ytd_Occupancy %"
+                }
+              },
+              "queryRef": "fact_occupancy_monthly.m_ytd_Occupancy %",
+              "nativeQueryRef": "Ytd Occupancy %",
+              "displayName": "Ytd Occupancy %"
             }
           ]
         }
@@ -72,6 +87,19 @@
       }
     },
     "objects": {
+      "lineStyles": [
+        {
+          "properties": {
+            "areaShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "valueAxis": [
         {
           "properties": {
@@ -88,13 +116,6 @@
       "categoryAxis": [
         {
           "properties": {
-            "axisType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Scalar'"
-                }
-              }
-            },
             "gridlineShow": {
               "expr": {
                 "Literal": {
@@ -117,6 +138,13 @@
                 }
               }
             },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "alignment": {
               "expr": {
                 "Literal": {
@@ -126,8 +154,119 @@
             }
           }
         }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "spaceAbovePlotArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "spaceAboveDivider": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "spaceAboveSubtitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ed09d41633348413b003",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "month_start"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c367734eaaf490566f8e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_occupancy_monthly"
+              }
+            },
+            "Property": "m_occupancyrate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
