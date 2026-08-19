@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "11c34947a34ebd0b7b54",
+  "position": {
+    "x": 20.198661500528356,
+    "y": 20.198661500528356,
+    "z": 0,
+    "height": 46.168369144064812,
+    "width": 1242.2176822824938,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "COO EXECUTIVE DASHBOARD",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#1f4e79"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
