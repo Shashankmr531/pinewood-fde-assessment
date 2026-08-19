@@ -42,7 +42,8 @@
                 }
               },
               "queryRef": "dim_community.community_name",
-              "nativeQueryRef": "community_name"
+              "nativeQueryRef": "Community Name",
+              "displayName": "Community Name"
             },
             {
               "field": {
@@ -72,12 +73,12 @@
                       "Entity": "fact_incident_care_monthly"
                     }
                   },
-                  "Property": "m_IncidentRatePer1000ResidentDays"
+                  "Property": "m_IncidentRatePer100ResidentDays"
                 }
               },
               "queryRef": "fact_incident_care_monthly.m_IncidentRatePer1000ResidentDays",
-              "nativeQueryRef": "Incident Rate Per 1000 Resident Days",
-              "displayName": "Incident Rate Per 1000 Resident Days"
+              "nativeQueryRef": "Incident Rate Per 100 Resident Days",
+              "displayName": "Incident Rate Per 100 Resident Days"
             }
           ]
         }
@@ -178,5 +179,70 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "53db7e94250492e19347",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "month_start"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1f206adac9832a549112",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_community"
+              }
+            },
+            "Property": "community_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "993419de112bc560cf4d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_incident_care_monthly"
+                  }
+                },
+                "Property": "incident_count"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9ef2de87ea04b6502a64",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_incident_care_monthly"
+              }
+            },
+            "Property": "m_IncidentRatePer100ResidentDays"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

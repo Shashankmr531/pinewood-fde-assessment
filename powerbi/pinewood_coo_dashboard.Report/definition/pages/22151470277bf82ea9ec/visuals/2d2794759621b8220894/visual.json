@@ -38,12 +38,12 @@
                       "Entity": "fact_incident_care_monthly"
                     }
                   },
-                  "Property": "m_IncidentRatePer1000ResidentDays"
+                  "Property": "m_IncidentRatePer100ResidentDays"
                 }
               },
               "queryRef": "fact_incident_care_monthly.m_IncidentRatePer1000ResidentDays",
-              "nativeQueryRef": "Incident Rate Per 1000 Resident Days",
-              "displayName": "Incident Rate Per 1000 Resident Days"
+              "nativeQueryRef": "Incident Rate Per 100 Resident Days",
+              "displayName": "Incident Rate Per 100 Resident Days"
             },
             {
               "field": {
@@ -70,10 +70,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "fact_move_out"
+                    "Entity": "fact_incident_care_monthly"
                   }
                 },
-                "Property": "m_MoveOutCount"
+                "Property": "m_IncidentRatePer100ResidentDays"
               }
             },
             "direction": "Descending"
@@ -306,5 +306,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "287796c14d7b99b7c6a3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_occupancy_monthly"
+              }
+            },
+            "Property": "m_occupancyrate"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "49fe68cb5ee1fd141ea8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_incident_care_monthly"
+              }
+            },
+            "Property": "m_IncidentRatePer100ResidentDays"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d674899550f15d48ff84",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_move_out"
+              }
+            },
+            "Property": "m_MoveOutCount"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
