@@ -1,0 +1,20 @@
+{
+  "warehouse": "pipeline/warehouse/pinewood.duckdb",
+  "schema": "gold",
+  "dimensions": ["dim_community", "dim_date", "dim_care_level"],
+  "facts": ["fact_occupancy_monthly", "fact_move_out", "fact_incident_care_monthly"],
+  "relationships": [
+    ["dim_community.community_id", "fact_occupancy_monthly.community_id"],
+    ["dim_date.month_start", "fact_occupancy_monthly.month_start"],
+    ["dim_community.community_id", "fact_move_out.community_id"],
+    ["dim_community.community_id", "fact_incident_care_monthly.community_id"],
+    ["dim_date.month_start", "fact_incident_care_monthly.month_start"],
+    ["dim_care_level.care_level_code", "fact_incident_care_monthly.care_level"]
+  ],
+  "measures": {
+    "Current Occupancy %": "DIVIDE(SUM(fact_occupancy_monthly[occupied_units]), SUM(fact_occupancy_monthly[total_units]))",
+    "Trailing 90D Move-Out Rate %": "DIVIDE(COUNTROWS(fact_move_out), SUM(fact_occupancy_monthly[occupied_units]))",
+    "Incident Rate per 100 Resident-Days": "DIVIDE(SUM(fact_incident_care_monthly[incident_count]), SUM(fact_incident_care_monthly[resident_days])) * 100",
+    "YTD Occupancy %": "CALCULATE([Current Occupancy %], DATESYTD(dim_date[month_start]))"
+  }
+}

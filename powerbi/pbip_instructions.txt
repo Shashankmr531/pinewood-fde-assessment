@@ -1,0 +1,25 @@
+Producing the actual .pbip
+
+Power BI .pbip (or .pbix) must be produced with Power BI Desktop. This file in the repo is a placeholder. Use these steps to create a production-ready pbip that matches the assessment requirements:
+
+1) Open Power BI Desktop (Windows):
+   - File > Get Data > Other > ODBC (or DuckDB connector if installed) and connect to pipeline/warehouse/pinewood.duckdb, or import CSVs from data/candidate_package/data/ (use Gold SQL exports for reproducibility).
+
+2) Load the Gold tables (use the SQL queries in sql/queries_gold.sql to validate the metrics).
+
+3) In Model view, create relationships as specified in powerbi/semantic_model.json.
+
+4) Add the four DAX measures (copy expressions from semantic_model.json). Validate numbers against DuckDB SQL.
+
+5) Create two RLS roles:
+   - COO: no filters
+   - FacilityViewer: filter by dim_facility[facility_id] (map users to facility_id)
+   Test roles using Modeling > Manage Roles > View as Role.
+
+6) Design the "COO Executive Overview" page: KPIs, trend, leaderboard, recent incidents.
+
+7) Save your report. If your Power BI supports exporting .pbip, export; otherwise save .pbix and keep it out of source if large. Add the file to this folder as pinewood_coo_dashboard.pbip (real file) and commit.
+
+Notes on size and repo hygiene:
+- If the .pbip/.pbix is large, consider exporting only the semantic model or using a pbix template. The assessment expects the Power BI file in source control — if file size is a concern, check with the evaluator.
+

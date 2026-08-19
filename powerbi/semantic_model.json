@@ -1,0 +1,80 @@
+{
+  "description": "Semantic model spec for Pinewood COO dashboard",
+  "tables": {
+    "dim_date": {
+      "columns": ["date","year","month","day","quarter"],
+      "grain": "date"
+    },
+    "dim_resident": {
+      "columns": ["resident_id","first_name","last_name","dob","gender"],
+      "grain": "resident_id"
+    },
+    "dim_facility": {
+      "columns": ["facility_id","facility_name","region","total_beds"],
+      "grain": "facility_id"
+    },
+    "fact_occupancy": {
+      "columns": ["date","facility_id","occupied_beds","available_beds","resident_days"],
+      "grain": "date + facility_id"
+    },
+    "fact_incident": {
+      "columns": ["incident_id","date","facility_id","resident_id","incident_type"],
+      "grain": "incident_id"
+    },
+    "fact_moveout": {
+      "columns": ["moveout_id","date","facility_id","resident_id","moveout_reason"],
+      "grain": "moveout_id"
+    }
+  },
+  "relationships": [
+    {"from_table":"dim_date","from_column":"date","to_table":"fact_occupancy","to_column":"date","type":"many-to-one"},
+    {"from_table":"dim_date","from_column":"date","to_table":"fact_incident","to_column":"date","type":"many-to-one"},
+    {"from_table":"dim_date","from_column":"date","to_table":"fact_moveout","to_column":"date","type":"many-to-one"},
+    {"from_table":"dim_facility","from_column":"facility_id","to_table":"fact_occupancy","to_column":"facility_id","type":"many-to-one"},
+    {"from_table":"dim_facility","from_column":"facility_id","to_table":"fact_incident","to_column":"facility_id","type":"many-to-one"},
+    {"from_table":"dim_facility","from_column":"facility_id","to_table":"fact_moveout","to_column":"facility_id","type":"many-to-one"},
+    {"from_table":"dim_resident","from_column":"resident_id","to_table":"fact_incident","to_column":"resident_id","type":"many-to-one"},
+    {"from_table":"dim_resident","from_column":"resident_id","to_table":"fact_moveout","to_column":"resident_id","type":"many-to-one"}
+  ],
+  "measures": {
+    "TotalOccupiedBeds": {
+      "expression": "SUM(fact_occupancy[occupied_beds])",
+      "format": "#,0",
+      "description": "Raw occupied beds summed across the selected period"
+    },
+    "OccupancyRate": {
+      "expression": "DIVIDE( [TotalOccupiedBeds], SUM(dim_facility[total_beds]) )",
+      "format": "0.0%",
+      "description": "Percent occupancy across selected facilities and date range"
+    },
+    "IncidentRatePer1000ResidentDays": {
+      "expression": "VAR incidents = COUNTROWS(fact_incident)\nVAR resident_days = SUM(fact_occupancy[resident_days])\nRETURN IF(resident_days = 0, BLANK(), incidents / resident_days * 1000)",
+      "format": "#,0.0",
+      "description": "Incidents per 1000 resident-days"
+    },
+    "MoveOutCount": {
+      "expression": "COUNTROWS(fact_moveout)",
+      "format": "#,0",
+      "description": "Number of resident move-outs in the selected period"
+    }
+  },
+  "rls": {
+    "COO": {
+      "filter": "(true)",
+      "description": "Full access to all facilities"
+    },
+    "FacilityViewer": {
+      "filter_expression": "dim_facility[facility_id] = USERPRINCIPALNAME() /* map user to facility_id via directory mapping */",
+      "description": "Per-facility access; requires mapping from user to facility_id in the tenant"
+    }
+  },
+  "report": {
+    "pages": [
+      {
+        "name": "COO Executive Overview",
+        "description": "Single executive page with top-line KPIs (OccupancyRate, IncidentRatePer1000ResidentDays, MoveOutCount), trend sparkline for occupancy, facility leaderboard, and a small table of recent incidents.",
+        "visuals": ["KPI:OccupancyRate","KPI:IncidentRatePer1000ResidentDays","KPI:MoveOutCount","Line:OccupancyTrend","Table:TopFacilitiesByOccupancy","Table:RecentIncidents"]
+      }
+    ]
+  }
+}
