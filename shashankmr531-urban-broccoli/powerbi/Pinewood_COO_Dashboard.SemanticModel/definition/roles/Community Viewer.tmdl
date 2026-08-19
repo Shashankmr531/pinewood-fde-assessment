@@ -1,7 +1,0 @@
-role 'Community Viewer'
-	modelPermission: read
-
-	tablePermission dim_community = [community_id] == "USERPRINCIPALNAME()"
-
-	annotation PBI_Id = 49a90bc4893d4bce99c6187de4472b57
-
